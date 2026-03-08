@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coupang Price Tracker v1.0</title>
+    <link rel="stylesheet" href="style.css?v=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="dark-theme">
+    <div id="app">
+        <aside class="sidebar">
+            <div class="logo-area">
+                <div class="logo-icon">🛒</div>
+                <h2>PriceBot <span class="version">v1.1</span></h2>
+            </div>
+            <nav>
+                <div class="nav-item active" onclick="showSection('dashboard')">📊 대시보드</div>
+                <div class="nav-item" onclick="showSection('products')">📦 상품 관리</div>
+            </nav>
+            <div class="update-log-area">
+                <h3>📜 업데이트 로그</h3>
+                <ul id="update-log">
+                    <li><strong>v1.1:</strong> Bright Data 프록시 이식 및 JSON-LD 스크래핑 엔진 강화</li>
+                    <li><strong>v1.0:</strong> 최초 시스템 구축 및 다크 테마 적용</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main>
+            <header>
+                <div class="header-main-actions" style="display: flex; align-items: center; gap: 1rem;">
+                    <button id="scan-now-btn" class="glass-btn" onclick="triggerScan()">🔄 지금 즉시 스캔</button>
+                    <p class="user-greeting">반갑습니다, <strong>대장님</strong>!</p>
+                </div>
+            </header>
+            <section class="add-product-card glass">
+                <h2>새로운 상품 감시</h2>
+                <div class="input-group">
+                    <input type="text" id="product-url" placeholder="쿠팡 상품 URL을 입력하세요..." />
+                    <button id="add-btn">감시 시작</button>
+                </div>
+            </section>
+
+            <section class="product-list-container">
+                <div class="section-header">
+                    <h2>감시 중인 상품</h2>
+                    <span id="product-count">0 items</span>
+                </div>
+                <div id="product-list" class="grid">
+                    <!-- Products will be injected here -->
+                    <div class="loader-container" id="main-loader">
+                        <div class="loader"></div>
+                        <p>데이터를 불러오는 중...</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Antigravity - Premium Price Monitoring Solution</p>
+        </footer>
+    </div>
+
+    <!-- Modal for History -->
+    <div id="history-modal" class="modal">
+        <div class="modal-content glass">
+            <span class="close">&times;</span>
+            <h2 id="modal-title">가격 히스토리</h2>
+            <div id="history-chart-container">
+                <!-- Chart or list -->
+                <ul id="history-list"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js?v=1.0"></script>
+</body>
+
+</html>

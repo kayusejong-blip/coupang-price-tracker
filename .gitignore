@@ -1,0 +1,6 @@
+.env
+__pycache__/
+*.pyc
+data/last_failed_page.html
+.vscode/
+.idea/
