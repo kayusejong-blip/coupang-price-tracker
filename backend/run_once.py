@@ -21,6 +21,12 @@ def run():
     """
     logger.info("GitHub Actions: 쿠팡 가격 스캔 엔진 가동...")
     
+    # 보안 설정 진단 (값은 가리고 유무만 확인)
+    token = os.getenv("TELEGRAM_TOKEN", "")
+    chat_id = os.getenv("TELEGRAM_CHAT_ID", "")
+    logger.info(f"진단: TELEGRAM_TOKEN 설정 여부 = {'O' if token else 'X'} (길이: {len(token)})")
+    logger.info(f"진단: TELEGRAM_CHAT_ID 설정 여부 = {'O' if chat_id else 'X'} (길이: {len(chat_id)})")
+    
     # DB 초기화 (테이블 생성 등)
     init_db()
     

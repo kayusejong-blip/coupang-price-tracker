@@ -12,7 +12,7 @@ def send_telegram_msg(message: str, image_url: str = None):
     chat_id = os.getenv("TELEGRAM_CHAT_ID")
     
     if not token or not chat_id:
-        print("Telegram configuration missing.")
+        print(f"Telegram configuration missing. Token_len: {len(token) if token else 0}, ChatID_len: {len(chat_id) if chat_id else 0}")
         return False
     
     try:
